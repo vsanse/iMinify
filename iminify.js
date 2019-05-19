@@ -13,7 +13,7 @@ const fs = require("fs"),
 clear();
 console.log(
     chalk.bold.yellow(
-        figlet.textSync("iOptim", { horizontalLayout: "full" })
+        figlet.textSync("iMinify", { horizontalLayout: "full" })
     )
 );
 

@@ -1,8 +1,8 @@
 {
-  "name": "ioptim",
+  "name": "iminify",
   "version": "1.0.0",
   "description": "Image optimization module based on imagemin",
-  "main": "ioptim.js",
+  "main": "iminify.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

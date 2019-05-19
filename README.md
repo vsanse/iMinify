@@ -1,14 +1,14 @@
-# iOptim [![Maintainability](https://api.codeclimate.com/v1/badges/ab398b1a9bcb2a2d50a7/maintainability)](https://codeclimate.com/github/vsanse/iOptim/maintainability) [![npm version](http://img.shields.io/npm/v/ioptim.svg?style=flat)](https://npmjs.org/package/ioptim "View this project on npm")
-iOptim is image optimization utility based on [imagemin](https://www.npmjs.com/package/imagemin) package. It currently supports optimization for:
+# iMinify [![Maintainability](https://api.codeclimate.com/v1/badges/ab398b1a9bcb2a2d50a7/maintainability)](https://codeclimate.com/github/vsanse/iMinify/maintainability) [![npm version](http://img.shields.io/npm/v/iminify.svg?style=flat)](https://npmjs.org/package/iminify "View this project on npm")
+iMinify is image optimization utility based on [imagemin](https://www.npmjs.com/package/imagemin) package. It currently supports optimization for:
 - png
 - jpg/jpeg
 - svg
 - gif
 
 # Usage
-iOptim is simple cli utility tool.
+iMinify is simple cli utility tool.
 ```sh
-$ npm install -g iOptim
+$ npm install -g iMinify
 $ optimize [options]
 ```
 
