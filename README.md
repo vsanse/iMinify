@@ -35,7 +35,7 @@ Values: `1 (brute-force) to 11 (fastest)`
 
 Speed 10 has 5% lower quality, but is about 8 times faster than the default. Speed 11 disables dithering and lowers compression level.
 
-#### --optimizelevel or -ol : 
+#### --optimizelevel or --ol : 
 Type: `number`   
 Default: `2`  
 Values: `1 to 3`  
@@ -49,7 +49,7 @@ The optimization level determines how much optimization is done; higher levels t
 2. Also uses transparency to shrink the file further.
 3. Try several optimization methods (usually slower, sometimes better results)  
 
-#### --interlaced or -il : 
+#### --interlaced or --il : 
 Type: `boolean`  
 Default: `true`  
 Values: `true/false`  
@@ -72,6 +72,16 @@ Make a pull request now!
 ### Todos
 
  - Add optimization for video files
+
+### FAQ & Issues:
+##### Q: It doesn't get installed globally using npm install -g iminify on windows
+###### Ans: Do this:
+1. `git clone https://github.com/vsanse/iminify`
+2. `cd iminify`
+3. `npm install -g`
+
+##### Q: Getting permission error using `sudo npm install -g iminify` on ubuntu/Linux
+###### Ans: use `sudo npm install -g iminify --unsafe-perm=true --allow-root`
 
 License
 ----
