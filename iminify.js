@@ -18,7 +18,7 @@ console.log(
 );
 
 const argv = yargs
-    .scriptName('optimize')
+    .scriptName('minify')
     .usage('Usage: $0 [options]')
     .option('quality', {
         alias: 'q',
