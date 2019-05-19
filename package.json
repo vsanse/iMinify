@@ -29,6 +29,6 @@
     "yargs": "^13.2.4"
   },
   "bin": {
-    "optimize": "./optimizer.js"
+    "minify": "./optimizer.js"
   }
 }

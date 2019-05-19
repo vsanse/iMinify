@@ -9,7 +9,7 @@ iMinify is image optimization utility based on [imagemin](https://www.npmjs.com/
 iMinify is simple cli utility tool.
 ```sh
 $ npm install -g iminify
-$ optimize [options]
+$ minify [options]
 ```
 
 ## Options
