@@ -1,8 +1,8 @@
 const imagemin = require('imagemin'),
-      imageMozJpeg = require('imagemin-mozjpeg'),
-      imagePngQuant = require('imagemin-pngquant'),
-      imageminGifsicle = require('imagemin-gifsicle'),
-      imageminSvgo = require('imagemin-svgo'),
+      imageMozJpeg = require('./imagemin-mozjpeg'),
+      imagePngQuant = require('./imagemin-pngquant'),
+      imageminGifsicle = require('./imagemin-gifsicle'),
+      imageminSvgo = require('./imagemin-svgo'),
       chalk = require('chalk');
       
 class engine{
