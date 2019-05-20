@@ -1,6 +1,6 @@
 {
   "name": "iminify",
-  "version": "1.0.4",
+  "version": "1.0.9",
   "description": "Image optimization module based on imagemin",
   "main": "iminify.js",
   "scripts": {
