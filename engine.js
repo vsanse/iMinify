@@ -35,7 +35,7 @@ class engine{
                 use: [
                     imagePngQuant({
                         speed: imgspeed,
-                        quality: [(0.01*imgQuality), 0.9]
+                        quality: [(0.01*imgQuality), 0.8]
                     })
                 ]
             }

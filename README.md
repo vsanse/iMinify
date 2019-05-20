@@ -78,7 +78,8 @@ Make a pull request now!
 ###### Ans: Do this:
 1. `git clone https://github.com/vsanse/iminify`
 2. `cd iminify`
-3. `npm install -g`
+3. `npm install`
+4. `npm install -g`
 
 ##### Q: Getting permission error using `sudo npm install -g iminify` on ubuntu/Linux
 ###### Ans: use `sudo npm install -g iminify --unsafe-perm=true --allow-root`
