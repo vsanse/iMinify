@@ -1,4 +1,7 @@
 # iMinify [![Maintainability](https://api.codeclimate.com/v1/badges/ab398b1a9bcb2a2d50a7/maintainability)](https://codeclimate.com/github/vsanse/iMinify/maintainability) [![npm version](http://img.shields.io/npm/v/iminify.svg?style=flat)](https://npmjs.org/package/iminify "View this project on npm")
+
+![iMinify](https://i.imgur.com/UhrQxCe.png)
+
 iMinify is image optimization utility based on [imagemin](https://www.npmjs.com/package/imagemin) package. It currently supports optimization for:
 - png
 - jpg/jpeg
