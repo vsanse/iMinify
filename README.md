@@ -84,7 +84,7 @@ Make a pull request now!
 3. `npm install`
 4. `npm install -g`
 
-##### Q: Getting permission error using `sudo npm install -g iminify` on ubuntu/Linux
+##### Q: Getting permission error using `sudo npm install -g iminify` on ubuntu/Linux/Mac
 ###### Ans: use `sudo npm install -g iminify --unsafe-perm=true --allow-root`
 
 License

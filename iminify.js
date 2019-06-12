@@ -23,37 +23,42 @@ const argv = yargs
     .option('quality', {
         alias: 'q',
         description: 'Define quality of images[1-100](Default:75)',
-        type: 'number',
+        type: 'number'
     })
     .option('progressive', {
         alias: 'p',
         description: 'If want progressive Jpeg (Default:false)',
-        type: 'boolean',
+        type: 'boolean'
     })
     .option('speed', {
         alias: 's',
         description: 'Handles dithering and compression level(png)[1-11](Default:1)',
-        type: 'number',
+        type: 'number'
     })
     .option('optimizeLevel', {
         alias: 'ol',
         description: 'Select an optimization level between 1 and 3[gif].The optimization level determines how much optimization is done; higher levels take longer, but may have better results.(Default:2)',
-        type: 'number',
+        type: 'number'
     })
     .option('interlaced', {
         alias: 'il',
         description: 'Interlace gif for progressive rendering[gif].(Default:true)',
-        type: 'boolean',
+        type: 'boolean'
     })
     .option('outputDir', {
         alias: 'o',
         description: 'Define output folder name(Default: replace files with optimized ones at same location)',
-        type: 'string',
+        type: 'string'
     })
     .option('inputDir', {
         alias: 'i',
         description: 'Define images folder name(Default: traverse all sub-directories in current directory)',
-        type: 'string',
+        type: 'string'
+    })
+    .option('webp',{
+        alias: 'w',
+        description: 'create webp image from your PNG/JPG image',
+        type: 'boolean'
     })
     .help()
     .alias('help', 'h')
@@ -66,7 +71,8 @@ const outputDir = argv.outputDir,
       progressive = argv.progressive?argv.progressive:false
       speed = argv.speed?argv.speed:1,
       optimizeLevel = argv.optimizeLevel?argv.optimizeLevel:2,
-      interlaced = argv.interlaced?argv.interlaced:true;
+      interlaced = argv.interlaced?argv.interlaced:true,
+      webp = argv.webp?argv.webp:false;
 
 function walk(dir, outputPath){
     const filesToWalk = fs.readdirSync(dir);
@@ -75,6 +81,9 @@ function walk(dir, outputPath){
     engines.optimizepng(dir, outputPath, quality, speed);
     engines.optimizegif(dir, outputPath, interlaced, optimizeLevel);
     engines.optimizesvg(dir,outputPath);
+    if(webp){
+        engines.createwebp(dir, outputPath, quality);
+    }
     // get next directory
     filesToWalk.forEach(file => {
         const origFilePath = path.join(dir, file);
