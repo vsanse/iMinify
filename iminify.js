@@ -57,7 +57,12 @@ const argv = yargs
     })
     .option('webp',{
         alias: 'w',
-        description: 'create webp image from your PNG/JPG image',
+        description: 'create webp image from your PNG/JPG image. Default: false',
+        type: 'boolean'
+    })
+    .option('minify',{
+        alias: 'm',
+        description: "Make this false if you don't want image optimization.e.g- create only webp images without minification: Default: true",
         type: 'boolean'
     })
     .help()
@@ -72,15 +77,18 @@ const outputDir = argv.outputDir,
       speed = argv.speed?argv.speed:1,
       optimizeLevel = argv.optimizeLevel?argv.optimizeLevel:2,
       interlaced = argv.interlaced?argv.interlaced:true,
-      webp = argv.webp?argv.webp:false;
+      webp = argv.webp?argv.webp:false,
+      minify = argv.webp?argv.webp:true;
 
 function walk(dir, outputPath){
     const filesToWalk = fs.readdirSync(dir);
     // Run optimization engines on directory
-    engines.optimizejpg(dir, outputPath, quality, progressive);
-    engines.optimizepng(dir, outputPath, quality, speed);
-    engines.optimizegif(dir, outputPath, interlaced, optimizeLevel);
-    engines.optimizesvg(dir,outputPath);
+    if(minify){
+        engines.optimizejpg(dir, outputPath, quality, progressive);
+        engines.optimizepng(dir, outputPath, quality, speed);
+        engines.optimizegif(dir, outputPath, interlaced, optimizeLevel);
+        engines.optimizesvg(dir,outputPath);
+    }
     if(webp){
         engines.createwebp(dir, outputPath, quality);
     }

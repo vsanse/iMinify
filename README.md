@@ -16,6 +16,20 @@ $ minify [options]
 ```
 
 ## Options
+#### --minify or -m : 
+Make this false if you don't want image optimization.e.g- create only webp images without minification
+e.g: `minify -m false -w true -q 60`
+
+Type: `boolean`  
+Default: `true`  
+
+#### --webp or -w : 
+Make this true if you want to create webp images
+e.g: `minify -w true -q 60`
+
+Type: `boolean`  
+Default: `false` 
+
 #### --quality or -q : 
 Define quality of images[1-100].  
 
@@ -83,6 +97,9 @@ Make a pull request now!
 2. `cd iminify`
 3. `npm install`
 4. `npm install -g`
+
+#### or
+`git clone https://github.com/vsanse/iminify && cd iminify && npm install && npm install -g`
 
 ##### Q: Getting permission error using `sudo npm install -g iminify` on ubuntu/Linux/Mac
 ###### Ans: use `sudo npm install -g iminify --unsafe-perm=true --allow-root`
