@@ -42,7 +42,7 @@ If you want progressive.[true/false]
 
 Type: `boolean`  
 image Type: `jpg/jpeg`  
-Default: `false`  
+Default: `true`  
 
 #### --speed or -s : 
 Type: `number`  

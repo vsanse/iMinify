@@ -73,12 +73,12 @@ const outputDir = argv.outputDir,
       inputDir = argv.inputDir,
       inputPath = inputDir?path.join(CURR_DIR, inputDir): CURR_DIR,
       quality  = argv.quality?argv.quality:75,
-      progressive = argv.progressive?argv.progressive:false
+      progressive = (typeof(argv.progressive)==="undefined" || argv.progressive === true) ?true:false,
       speed = argv.speed?argv.speed:1,
       optimizeLevel = argv.optimizeLevel?argv.optimizeLevel:2,
-      interlaced = argv.interlaced?argv.interlaced:true,
+      interlaced = (typeof(argv.interlaced)==="undefined" || argv.interlaced === true) ?true:false,
       webp = argv.webp?argv.webp:false,
-      minify = argv.minify?argv.minify:true;
+      minify =(typeof(argv.minify)==="undefined" || argv.minify === true) ?true:false;
 
 function walk(dir, outputPath){
     const filesToWalk = fs.readdirSync(dir);
@@ -90,7 +90,7 @@ function walk(dir, outputPath){
         engines.optimizesvg(dir,outputPath);
     }
     if(webp){
-        engines.createwebp(dir, outputPath, quality);
+        engines.createwebp(dir, outputPath, quality);  
     }
     // get next directory
     filesToWalk.forEach(file => {

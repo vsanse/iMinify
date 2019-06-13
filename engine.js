@@ -71,6 +71,8 @@ class engine {
                     alphaQuality: 40
                 })
             ]
+        }).then(() => {
+            console.log(chalk.blue("Creating webp images from (.png) optimized:for dir:", imgpath));
         });
 
         imagemin([`${imgpath}/*.jpg`, `${imgpath}/*.jpeg`], outputPath, {
@@ -79,6 +81,8 @@ class engine {
                     quality: imgQuality // Quality setting from 0 to 100
                 })
             ]
+        }).then(() => {
+            console.log(chalk.blue("Creating webp images from (.jpg) optimized:for dir:", imgpath));
         });
     }
 }
