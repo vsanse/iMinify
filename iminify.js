@@ -78,7 +78,7 @@ const outputDir = argv.outputDir,
       optimizeLevel = argv.optimizeLevel?argv.optimizeLevel:2,
       interlaced = argv.interlaced?argv.interlaced:true,
       webp = argv.webp?argv.webp:false,
-      minify = argv.webp?argv.webp:true;
+      minify = argv.minify?argv.minify:true;
 
 function walk(dir, outputPath){
     const filesToWalk = fs.readdirSync(dir);
