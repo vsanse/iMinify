@@ -35,6 +35,13 @@ Define quality of images[1-100].
 
 Type: `number`  
 image Type: `jpg/jpeg, png`  
+Default: `75` 
+
+#### --alphaQuality or --aq : 
+Define alphaQuality of PNG images. Required for webp Conversion[1-100].  
+
+Type: `number`  
+image Type: `png`  
 Default: `75`  
 
 #### --progressive, -p : 
