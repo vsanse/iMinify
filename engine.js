@@ -63,12 +63,12 @@ class engine {
             console.log(chalk.blue("Images(.svg) optimized:for dir:", imgpath));
         });
     }
-    createwebp(imgpath, outputPath, imgQuality) {
+    createwebp(imgpath, outputPath, imgQuality, alphaQuality) {
         imagemin([`${imgpath}/*.png`], outputPath, {
             plugins: [
                 webp({
                     lossless: false, // Losslessly encode images
-                    alphaQuality: 40
+                    alphaQuality: alphaQuality
                 })
             ]
         }).then(() => {

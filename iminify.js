@@ -25,6 +25,11 @@ const argv = yargs
         description: 'Define quality of images[1-100](Default:75)',
         type: 'number'
     })
+    .option('alphaQuality', {
+        alias: 'aq',
+        description: 'Define alphaQuality of PNG images. Required for webp Conversion[1-100](Default:75)',
+        type: 'number'
+    })
     .option('progressive', {
         alias: 'p',
         description: 'If want progressive Jpeg (Default:false)',
@@ -78,7 +83,8 @@ const outputDir = argv.outputDir,
       optimizeLevel = argv.optimizeLevel?argv.optimizeLevel:2,
       interlaced = (typeof(argv.interlaced)==="undefined" || argv.interlaced === true) ?true:false,
       webp = argv.webp?argv.webp:false,
-      minify =(typeof(argv.minify)==="undefined" || argv.minify === true) ?true:false;
+      minify =(typeof(argv.minify)==="undefined" || argv.minify === true) ?true:false,
+      alphaQuality = argv.alphaQuality?argv.alphaQuality:75;
 
 function walk(dir, outputPath){
     const filesToWalk = fs.readdirSync(dir);
@@ -90,7 +96,7 @@ function walk(dir, outputPath){
         engines.optimizesvg(dir,outputPath);
     }
     if(webp){
-        engines.createwebp(dir, outputPath, quality);  
+        engines.createwebp(dir, outputPath, quality, alphaQuality);  
     }
     // get next directory
     filesToWalk.forEach(file => {
