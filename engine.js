@@ -38,25 +38,32 @@ class engine {
             );
         });
     }
+    // lossy option not available yet hence NO gif Support
+    // issue: https://github.com/imagemin/gifsicle-bin/issues/104 & https://github.com/kohler/gifsicle/issues/137
     optimizegif(imgpath, outputPath, imginterlaced, optilevel) {
-        imagemin([`${imgpath}/*.gif`], outputPath, {
-            use: [
-                imageminGifsicle({
-                    interlaced: imginterlaced,
-                    optimizationLevel: optilevel
-                })
-            ]
-        }).then(() => {
-            console.log(
-                chalk.magenta("Images(.gif) optimized:for dir:", imgpath)
-            );
-        });
-    }
+        /*imagemin([`${imgpath}/*.gif`], outputPath, {
+             use: [
+                 imageminGifsicle({
+                     interlaced: imginterlaced,
+                     optimizationLevel: optilevel
+                 })
+             ]
+         }).then(() => {
+             console.log(
+                 chalk.magenta("Images(.gif) optimized:for dir:", imgpath)
+             );
+         });*/
+     }
     optimizesvg(imgpath, outputPath) {
         imagemin([`${imgpath}/*.svg`], outputPath, {
             use: [
                 imageminSvgo({
-                    plugins: [{ removeViewBox: false }]
+                    plugins: [{ 
+                        removeViewBox: true,
+                        reusePaths: true,
+                        removeAttrs: true,
+                        removeOffCanvasPaths: true
+                    }]
                 })
             ]
         }).then(() => {

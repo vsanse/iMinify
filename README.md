@@ -6,7 +6,10 @@ iMinify is image optimization utility based on [imagemin](https://www.npmjs.com/
 - png
 - jpg/jpeg
 - svg
-- gif
+- ~~gif~~  
+```diff
+- GIF support delayed till issues are resolved ==> https://github.com/imagemin/gifsicle-bin/issues/104 & https://github.com/kohler/gifsicle/issues/137
+```
 
 # Usage
 iMinify is simple cli utility tool.
