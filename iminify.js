@@ -22,12 +22,12 @@ const argv = yargs
     .usage('Usage: $0 [options]')
     .option('quality', {
         alias: 'q',
-        description: 'Define quality of images[1-100](Default:75)',
+        description: 'Define quality of images[1-100](Default:100)',
         type: 'number'
     })
     .option('alphaQuality', {
         alias: 'aq',
-        description: 'Define alphaQuality of PNG images. Required for webp Conversion[1-100](Default:75)',
+        description: 'Define alphaQuality of PNG images. Required for webp Conversion[1-100](Default:100)',
         type: 'number'
     })
     .option('progressive', {
