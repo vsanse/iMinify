@@ -33,6 +33,13 @@ e.g: `minify -w true -q 60`
 Type: `boolean`  
 Default: `false` 
 
+#### --lossless or -l : 
+Make this true if you want to optimize image losslessly
+e.g: `minify -l true`
+
+Type: `boolean`  
+Default: `false`
+
 #### --quality or -q : 
 Define quality of images[1-100].  
 

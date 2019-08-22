@@ -1,6 +1,8 @@
 const imagemin = require("imagemin"),
     imageMozJpeg = require("imagemin-mozjpeg"),
+    imageminJpegtran = require('imagemin-jpegtran'),
     imagePngQuant = require("imagemin-pngquant"),
+    imageminOptipng = require('imagemin-optipng'),
     imageminGifsicle = require("imagemin-gifsicle"),
     imageminSvgo = require("imagemin-svgo"),
     webp = require("imagemin-webp"),
@@ -10,33 +12,62 @@ class engine {
     constructor(CURR_DIR) {
         this.CURR_DIR = CURR_DIR;
     }
-    optimizejpg(imgpath, outputPath, imgQuality, isProgressive) {
-        imagemin([`${imgpath}/*.jpg`, `${imgpath}/*.jpeg`], outputPath, {
-            use: [
-                imageMozJpeg({
-                    quality: imgQuality,
-                    progressive: isProgressive
-                })
-            ]
-        }).then(() => {
-            console.log(
-                chalk.yellow("Images(.jpg) optimized:for dir:", imgpath)
-            );
-        });
+    optimizejpg(imgpath, outputPath, imgQuality, isProgressive, lossless) {
+        if(!lossless){
+            imagemin([`${imgpath}/*.jpg`, `${imgpath}/*.jpeg`], outputPath, {
+                use: [
+                    imageMozJpeg({
+                        quality: imgQuality,
+                        progressive: isProgressive
+                    })
+                ]
+            }).then(() => {
+                console.log(
+                    chalk.yellow("Images(.jpg) optimized:for dir:", imgpath)
+                );
+            });
+        }
+        else{
+            imagemin([`${imgpath}/*.jpg`, `${imgpath}/*.jpeg`], outputPath, {
+                use: [
+                    imageminJpegtran({
+                        progressive: isProgressive
+                    })
+                ]
+            }).then(() => {
+                console.log(
+                    chalk.yellow("Images(.jpg) optimized:for dir:", imgpath)
+                );
+            });
+
+        }
     }
-    optimizepng(imgpath, outputPath, imgQuality, imgspeed) {
-        imagemin([`${imgpath}/*.png`], outputPath, {
-            use: [
-                imagePngQuant({
-                    speed: imgspeed,
-                    quality: [0.01 * imgQuality, 1]
-                })
-            ]
-        }).then(() => {
-            console.log(
-                chalk.green("Images(.png) optimized:for dir:", imgpath)
-            );
-        });
+    optimizepng(imgpath, outputPath, imgQuality, imgspeed, lossless) {
+        if(!lossless){
+            imagemin([`${imgpath}/*.png`], outputPath, {
+                use: [
+                    imagePngQuant({
+                        speed: imgspeed,
+                        quality: [0.01 * imgQuality, 1]
+                    })
+                ]
+            }).then(() => {
+                console.log(
+                    chalk.green("Images(.png) optimized:for dir:", imgpath)
+                );
+            });
+        }
+        else{
+            imagemin([`${imgpath}/*.png`], outputPath, {
+                use: [
+                    imageminOptipng()
+                ]
+            }).then(() => {
+                console.log(
+                    chalk.green("Images(.png) optimized:for dir:", imgpath)
+                );
+            });
+        }
     }
     // lossy option not available yet hence NO gif Support
     // issue: https://github.com/imagemin/gifsicle-bin/issues/104 & https://github.com/kohler/gifsicle/issues/137

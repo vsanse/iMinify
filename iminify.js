@@ -70,6 +70,11 @@ const argv = yargs
         description: "Make this false if you don't want image optimization.e.g- create only webp images without minification: Default: true",
         type: 'boolean'
     })
+    .option('lossless',{
+        alias: 'l',
+        description: "Make this true if you want lossless compress instead of lossy. In case of lossless no need to define quality parameter. Default: false",
+        type: 'boolean'
+    })
     .help()
     .alias('help', 'h')
     .argv;
@@ -82,6 +87,7 @@ const outputDir = argv.outputDir,
       speed = argv.speed?argv.speed:1,
       optimizeLevel = argv.optimizeLevel?argv.optimizeLevel:2,
       interlaced = (typeof(argv.interlaced)==="undefined" || argv.interlaced === true) ?true:false,
+      lossless = argv.lossless?argv.lossless:false,
       webp = argv.webp?argv.webp:false,
       minify =(typeof(argv.minify)==="undefined" || argv.minify === true) ?true:false,
       alphaQuality = argv.alphaQuality?argv.alphaQuality:75;
@@ -90,8 +96,8 @@ function walk(dir, outputPath){
     const filesToWalk = fs.readdirSync(dir);
     // Run optimization engines on directory
     if(minify){
-        engines.optimizejpg(dir, outputPath, quality, progressive);
-        engines.optimizepng(dir, outputPath, quality, speed);
+        engines.optimizejpg(dir, outputPath, quality, progressive, lossless);
+        engines.optimizepng(dir, outputPath, quality, speed, lossless);
         engines.optimizegif(dir, outputPath, interlaced, optimizeLevel);
         engines.optimizesvg(dir,outputPath);
     }
